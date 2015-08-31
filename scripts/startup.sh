@@ -1,1 +1,4 @@
-docker run -it -v `pwd`:/my_phoenix phoenix-blog /bin/bash
+#! /bin/bash
+
+npm install
+mix phoenix.server
