@@ -27,8 +27,10 @@ config :blog_phoenix, BlogPhoenix.Endpoint,
 config :logger, :console, format: "[$level] $message\n"
 
 # Configure your database
-config :blog_phoenix, BlogPhoenix.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "blog_phoenix_dev"
+ config :blog_phoenix, BlogPhoenix.Repo,
+   adapter: Ecto.Adapters.Postgres,
+   username: "phoenix_blog",
+   password: "postgres",
+   database: "phoenix_blog", 
+   hostname: "db"
+#url: "socket://phoenix_blog@db.localhost.com"
