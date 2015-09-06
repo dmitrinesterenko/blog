@@ -1,4 +1,5 @@
 #! /bin/bash
 
 npm install
-mix phoenix.server
+mix deps.get 
+mix test && mix phoenix.server

@@ -3,8 +3,7 @@ app:
   volumes: 
     - .:/my_phoenix
   working_dir: /my_phoenix
-  #command: 'scripts/startup.sh'
-  command: 'scripts/test.sh'
+  command: 'scripts/startup.sh'
   ports:
     - '4000:4000'
   links:
