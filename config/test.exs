@@ -15,5 +15,6 @@ config :blog_phoenix, BlogPhoenix.Repo,
   username: "postgres",
   password: "postgres",
   database: "blog_phoenix_test",
-  size: 1,
+  hostname: "db",
+	size: 1,
   max_overflow: 0
