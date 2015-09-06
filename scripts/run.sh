@@ -1,1 +1,1 @@
-docker run -it -p 4000:4000  -v $(pwd):/my_phoenix phoenix-blog ./scripts/startup.sh
+docker run -it -p 4000:4000  -v $(pwd):/my_phoenix blogphoenix_app ./scripts/startup.sh

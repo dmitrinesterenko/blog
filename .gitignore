@@ -1,6 +1,5 @@
 # Vim stuff
-*.swp
-*.swo
+*.sw[op]
 
 # Mix artifacts
 /_build
