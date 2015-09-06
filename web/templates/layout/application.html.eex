@@ -10,12 +10,22 @@
     <title>Hello Phoenix!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
-
+  
   <body>
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          	<li><a href="stop id">Stop it</a></li>
+        
+				<ul class="nav nav-pills pull-right">
+          	<li>
+							<a href="/about">
+								About Me 
+							</a>
+						<li>
+							<a href="/about/blowhard">	
+								The Blowhard Edition
+							</a>
+						</li>
+						<li><a href="stop id">Stop it</a></li>
 		<li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
         </ul>
         <span class="logo"></span>
