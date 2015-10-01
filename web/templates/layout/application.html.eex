@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Phoenix!</title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
   
@@ -21,12 +21,11 @@
 								About Me 
 							</a>
 						<li>
-							<a href="/about/blowhard">	
-								The Blowhard Edition
+							<a href="/write">	
+								Write
 							</a>
 						</li>
-						<li><a href="stop id">Stop it</a></li>
-		<li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+						<li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
         </ul>
         <span class="logo"></span>
       </div>

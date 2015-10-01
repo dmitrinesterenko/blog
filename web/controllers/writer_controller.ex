@@ -8,6 +8,10 @@ defmodule BlogPhoenix.WriterController do
   end
 
   def new(conn, _params) do
+    put_flash(conn, :my, "DEBUGMESSAGE")
+    IO.puts "----------------"
+    IO.puts get_flash(conn, :my)
+    IO.puts "----------------"
     render conn, "new.html"
   end
   
