@@ -1,6 +1,7 @@
+require IEx
 defmodule BlogPhoenix.WriterController do
   use BlogPhoenix.Web, :controller
-
+  alias BlogPhoenix.Post  
   plug :action
 
   def index(conn, _params) do
@@ -16,9 +17,9 @@ defmodule BlogPhoenix.WriterController do
   end
   
   def create(conn, params) do
-   # writer = Writer.new(params[:title], params[:slug], params[:body])
-    #message = writer.save
-   message = "" 
+   IEx.pry
+   post = Post.changeset(%{title: params[:title], slug: params[:slug], body: params[:body]})
+   message = post.save
    if message == "" do
       message = "Saved"
    end
