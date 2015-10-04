@@ -9,7 +9,19 @@
         <label for="title">Title</label>
       </div>
       <div>
-        <input type="test" id="title"/>
+        <input type="text" id="title"/>
+      </div>
+      <div>
+        <label for="slug">Slug</label>
+      </div>
+      <div>
+        <input type="text" id="slug" value="no-space-in-slug"/>
+      </div>
+      <div>
+        <label for="body">Body</label>
+      </div>
+      <div>
+        <input type="text" id="body" value="I have no body"/>
       </div>
       <div>
         <input type="submit" id="submit"/>
