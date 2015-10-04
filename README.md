@@ -12,3 +12,16 @@ Depending on the command in the app section of the docker-compose.yml this will
 either run the application or run the tests. 
 
 Now you can visit `localhost:4000` from your browser.
+
+# Developing
+
+## Debugging
+
+Scenario: You want to try something
+out on the interactive elixir console with this project loaded. 
+```sh
+user@host $ docker run -it blogphoenix_app /bin/bash
+root@container_id:/my_phoenix# 
+# now run the interactive elixir console
+root@container_id:/my_phoenix# iex -S mix phoenix.server 
+``` 
