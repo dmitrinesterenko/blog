@@ -11,6 +11,9 @@
       <div>
         <input type="test" id="title"/>
       </div>
+      <div>
+        <input type="submit" id="submit"/>
+      </div>
     </div>
   </div>
 </form>
