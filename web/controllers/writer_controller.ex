@@ -18,8 +18,8 @@ defmodule BlogPhoenix.WriterController do
   
   def create(conn, params) do
    IEx.pry
-   post = Post.changeset(%{title: params[:title], slug: params[:slug], body: params[:body]})
-   message = post.save
+   #post = Post.changeset(%{title: params["title"], slug: params["slug"], body: params["body"]})
+   message = ""#post.save
    if message == "" do
       message = "Saved"
    end
