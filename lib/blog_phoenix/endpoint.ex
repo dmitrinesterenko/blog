@@ -31,5 +31,5 @@ defmodule BlogPhoenix.Endpoint do
     key: "_blog_phoenix_key",
     signing_salt: "wSWYWDtu"
 
-  plug :router, BlogPhoenix.Router
+  plug BlogPhoenix.Router
 end

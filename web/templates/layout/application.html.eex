@@ -7,18 +7,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><%= title %></title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <title></title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/application.scss") %>">
   </head>
-  
+
   <body>
     <div class="container">
       <div class="header">
-        
+
 				<ul class="nav nav-pills pull-right">
           	<li>
 							<a href="/about">
-								About Me 
+								About Me
 							</a>
 						<li>
 							<a href="/write">	
@@ -36,7 +36,6 @@
       <%= @inner %>
 
     </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-    <script>require("web/static/js/app")</script>
+    <script src="<%= static_path(@conn, "/js/application.js") %>"></script>
   </body>
 </html>
