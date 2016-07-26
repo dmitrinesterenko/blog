@@ -1,11 +1,13 @@
 #! /bin/bash
 
-npm install
 #update Hex
-#mix deps.get
-#mix local.hex
-#mix compile
+mix local.hex --force
+mix local.rebar --force
+mix deps.get -Y
 mix deps.update phoenix_live_reload
+npm install
+npm install node-sass
+mix compile
 mix phoenix.server
 /bin/bash
 

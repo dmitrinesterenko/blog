@@ -1,8 +1,8 @@
 require IEx
 defmodule BlogPhoenix.WriterController do
   use BlogPhoenix.Web, :controller
-  alias BlogPhoenix.Post  
-  plug :action
+  alias BlogPhoenix.Post
+  #plug :action
 
   def index(conn, _params) do
     render conn,"index.html"
@@ -15,7 +15,7 @@ defmodule BlogPhoenix.WriterController do
     IO.puts "----------------"
     render conn, "new.html"
   end
-  
+
   def create(conn, params) do
    #IEx.pry
    #post = Post.changeset(%{title: params["title"], slug: params["slug"], body: params["body"]})
@@ -25,7 +25,7 @@ defmodule BlogPhoenix.WriterController do
    end
 
    # This does not print out an :info message
-   # TODO investigate why it does not 
+   # TODO investigate why it does not
    # Time to debug and use get_flash :info
    #put_flash conn, :info,  "Saved"
    # This is one way of rendering

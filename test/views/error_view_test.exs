@@ -1,5 +1,6 @@
 defmodule BlogPhoenix.ErrorViewTest do
-  use BlogPhoenix.ConnCase, async: true
+  # use BlogPhoenix.ConnCase, async: true # async: false did not work
+  use BlogPhoenix.ConnCase, async: false
 
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View

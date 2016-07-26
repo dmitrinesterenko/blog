@@ -4,7 +4,7 @@ defmodule BlogPhoenix.Mixfile do
   def project do
     [app: :blog_phoenix,
      version: "0.0.1",
-     elixir: "~> 1.1",
+     elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -30,10 +30,19 @@ defmodule BlogPhoenix.Mixfile do
   # Type `mix help deps` for examples and options
   defp deps do
     [{:phoenix, "~> 1.0.0"},
-     {:phoenix_ecto, "~> 1.2.0"},
-     {:postgrex, ">= 0.0.0"},
+     {:phoenix_ecto, "~> 3.0.0-rc"},
+     {:postgrex, ">= 0.11.0"},
      {:phoenix_live_reload, "~> 1.0"},
-     {:phoenix_html, "~> 2.3.0"},
+     {:phoenix_html, "~> 2.5"},
      {:cowboy, "~> 1.0"}]
   end
+
+#  defp aliases do
+#    ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+#     "ecto.reset": ["ecto.drop", "ecto.setup"],
+#     "db.migrate": ["ecto.migrate", "ecto.dump"], # alias we added
+#     "db.rollback": ["ecto.rollback", "ecto.dump"], # alias we added
+#     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
+#  end
+
 end
