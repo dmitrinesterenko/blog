@@ -17,4 +17,5 @@ config :blog_phoenix, BlogPhoenix.Repo,
   database: "blog_phoenix_test",
   hostname: "db",
 	size: 1,
-  max_overflow: 0
+  max_overflow: 0,
+  pool: Ecto.Adapters.SQL.Sandbox

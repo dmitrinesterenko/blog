@@ -1,6 +1,7 @@
 #! /bin/bash
 
 npm install
-mix deps.get 
+mix local.hex --force
+mix deps.get
 mix test
 mix phoenix.server

@@ -3,6 +3,7 @@ defmodule BlogPhoenix.PostTest do
 
   alias BlogPhoenix.Post
 
+
   @valid_attrs %{body: "some content", slug: "some content", title: "some content"}
   @invalid_attrs %{}
 

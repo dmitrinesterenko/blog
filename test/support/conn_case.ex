@@ -33,11 +33,11 @@ defmodule BlogPhoenix.ConnCase do
     end
   end
 
-  setup tags do
-    unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(BlogPhoenix.Repo, [])
-    end
 
-    :ok
+  setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(BlogPhoenix.Repo)
+    unless tags[:async] do
+      Ecto.Adapters.SQL.Sandbox.mode(BlogPhoenix.Repo, {:shared, self()})
+    end
   end
 end
