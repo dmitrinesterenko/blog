@@ -1,1 +1,0 @@
-docker run -it -p 4000:4000  -v $(pwd):/my_phoenix blogphoenix_app /bin/bash

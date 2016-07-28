@@ -17,6 +17,8 @@ defmodule BlogPhoenix.Router do
 
     get "/", PageController, :index
     get "/about", PageController, :about
+    get "/write", WriterController, :new
+    post "/write", WriterController, :create
   end
 
   # Other scopes may use custom stacks.

@@ -3,7 +3,7 @@ app:
   volumes: 
     - .:/my_phoenix
   working_dir: /my_phoenix
-  command: 'scripts/container/startup.sh'
+  command: 'scripts/container/startup_development.sh '
   ports:
     - '4000:4000'
   links:

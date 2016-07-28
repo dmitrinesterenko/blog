@@ -1,0 +1,32 @@
+
+<form method="post" action="/write">
+  <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+  <div class="headline">
+    <div>write a new post</div>
+  </div>
+  <div class="row">
+      <div>
+        <label for="title">Title</label>
+      </div>
+      <div>
+        <input type="text" name="title"/>
+      </div>
+      <div>
+        <label for="slug">Slug</label>
+      </div>
+      <div>
+        <input type="text" name="slug" value="no-space-in-slug"/>
+      </div>
+      <div>
+        <label for="body">Body</label>
+      </div>
+      <div>
+        <input type="text" name="body" value="I have no body"/>
+      </div>
+      <div>
+        <input type="submit" name="submit"/>
+      </div>
+    </div>
+  </div>
+</form>
+

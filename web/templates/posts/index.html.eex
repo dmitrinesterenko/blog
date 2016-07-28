@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h2>My Posts</h2>
+  <p class="lead">
+    These are your posts. 
+  </p>
+
+</div>
+<% #render_many(posts, PostView, 'post.html') 
+%>
+<% #@rows.each do 
+%>
+
+  <% #render ('post', @post)
+  %>
+
+<% #end 
+%> 
+
+
