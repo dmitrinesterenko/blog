@@ -1,0 +1,10 @@
+  <div class="col-lg-6">
+    <div class="post">
+      <div class="title">
+        <% @post.title %>
+      </div>
+      <div class="body">
+        <% @post.body %>
+      </div>
+    </div>
+  </div>

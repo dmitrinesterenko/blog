@@ -3,6 +3,6 @@ defmodule BlogPhoenix.ReaderControllerTest do
 
   test "GET /read" do
     conn = get conn(), "/read"
-    assert html_response(conn,200)
+    assert html_response(conn,200) =~ "your posts"
   end
 end
