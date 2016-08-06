@@ -1,0 +1,28 @@
+FROM marcelocg/phoenix:latest
+
+#TODO this is not necessary once you use docker-compose
+ENV WORKDIR /my_phoenix
+WORKDIR $WORKDIR
+ADD . $WORKDIR
+RUN apt-get update
+# Looks that marcelo's image is missing psql so the default use of Postgres
+# is not available. This is smart of the original image because the
+# tools used by Ecto to connect to the DB depend on the
+# DB decision of each phoenix project
+RUN apt-get install -y postgresql-client
+# Update to 1.1 of elixir
+RUN apt-get install -y elixir
+ENV
+WORKDIR
+RUN mix local.rebar --force
+RUN mix deps.get -Y
+RUN mix deps.clean connection
+RUN mix deps.clean db_connection
+RUN mix deps.clean postgrex
+RUN mix deps.update --all
+RUN mix compile
+RUN npm install
+RUN npm install node-sass
+
+EXPOSE 4000
+CMD ["/bin/sh", "/bin/bash"]
