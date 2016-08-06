@@ -7,26 +7,31 @@ This is a blog engine that uses the Phoenix framework
 ```sh
 docker-compose up
 ```
+This will run the application.
 
-Depending on the command in the app section of the docker-compose.yml this will 
-either run the application or run the tests. 
-
-Now you can visit `localhost:4000` from your browser.
+Now you can visit `localhost:4000` in your browser.
 
 # Developing
 
+## Running tests
+```sh
+docker-compose up -f docker-compose-test.yml up
+```
+
 ## Debugging
 
-Scenario: You want to try something
-out on the interactive elixir console Iex with this project loaded. 
-```sh
-user@host $ docker run -it blogphoenix_app /bin/bash
-root@container_id:/my_phoenix# 
-# now run the interactive elixir console
-root@container_id:/my_phoenix# iex -S mix phoenix.server 
-```
+With two shell windows open.
 
-Scenario: You want to enable Iex for Iex.pry inside your code
+In the first one run the command to start the container in development mode.
 ```sh
-user@host $ iex -S mix phoenix.server
+./scripts/host/development.sh
 ```
+In the second window or pane find the ID of the apps container:
+```sh
+CONTAINER=$(docker ps -q | grep app)
+docker exec -it $CONTAINER /bin/bash
+iex -S mix test # will run the tests IEx attached
+```
+Visit the [Wiki on
+Debugging](https://github.com/dmitrinesterenko/blog/wiki/Debugging) for
+additional notes

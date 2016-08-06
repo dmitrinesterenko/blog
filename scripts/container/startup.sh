@@ -1,7 +1,3 @@
 #! /bin/bash
-
-npm install
-mix local.hex --force
-mix deps.get
-mix test
+./scripts/container/test.sh
 mix phoenix.server
