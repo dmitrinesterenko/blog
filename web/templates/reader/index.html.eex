@@ -1,10 +1,9 @@
 <div class="jumbotron">
-  <h2>My Posts</h2>
   <p class="lead">
-    These are your posts.
+    Read
   </p>
 </div>
 <%= for post <- @posts do %>
-  <div class="title"><%= BlogPhoenix.ReaderView.title(post.title) %></div>
-  <div class="body"><%= post.body %></div>
+  <div class="title"><%= ReaderView.title(post) %></div>
+  <div class="body"><%= ReaderView.preview(post) %></div>
 <% end %>
