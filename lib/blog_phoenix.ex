@@ -10,7 +10,8 @@ defmodule BlogPhoenix do
       # Start the endpoint when the application starts
       supervisor(BlogPhoenix.Endpoint, []),
       # Start the Ecto repository
-      worker(BlogPhoenix.Repo, []),
+      # worker(BlogPhoenix.Repo, []),
+      supervisor(BlogPhoenix.Repo, [])
       # Here you could define other workers and supervisors as children
       # worker(BlogPhoenix.Worker, [arg1, arg2, arg3]),
     ]
