@@ -15,6 +15,6 @@ defmodule BlogPhoenix.WriterControllerTest do
 
   test "POST /write with missing title" do
     conn = post conn(), "/write", [body: "test body"]
-    assert html_response(conn, 500) =~ Phoenix.HTML.Safe.to_iodata("title can't be blank")
+    assert html_response(conn, 422) =~ Phoenix.HTML.Safe.to_iodata("title can't be blank")
   end
 end
