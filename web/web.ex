@@ -29,7 +29,7 @@ defmodule BlogPhoenix.Web do
   def controller do
     quote do
       use Phoenix.Controller
-
+      require IEx
       # Alias the data repository and import query/model functions
       alias BlogPhoenix.Repo
       import Ecto.Model
