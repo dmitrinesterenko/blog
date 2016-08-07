@@ -21,5 +21,6 @@ defmodule BlogPhoenix.Post do
   def changeset(model, params \\ nil) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> validate_length(:title, min: 2, message: "should be at least 2 characters")
   end
 end
