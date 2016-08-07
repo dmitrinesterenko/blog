@@ -1,4 +1,3 @@
-require IEx
 defmodule BlogPhoenix.WriterController do
   use BlogPhoenix.Web, :controller
   alias BlogPhoenix.Post

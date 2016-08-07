@@ -12,13 +12,14 @@ defmodule BlogPhoenix.ConnCase do
   inside a transaction which is reset at the beginning
   of the test unless the test case is marked as async.
   """
-
   use ExUnit.CaseTemplate
 
   using do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
+      # Allow debugging
+      require IEx
 
       # Alias the data repository and import query/model functions
       alias BlogPhoenix.Repo
