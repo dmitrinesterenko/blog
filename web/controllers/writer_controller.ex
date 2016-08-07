@@ -24,7 +24,7 @@ defmodule BlogPhoenix.WriterController do
        |> put_flash(:info, "Saved")
        |> render("new.html")
      _ -> conn
-       |> put_status(500)
+       |> put_status(422)
        |> put_flash(:error, ResponseFormatter.format_error(response.errors))
        |> render("new.html")
    end
