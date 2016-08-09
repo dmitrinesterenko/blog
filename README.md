@@ -35,3 +35,8 @@ iex -S mix test # will run the tests IEx attached
 Visit the [Wiki on
 Debugging](https://github.com/dmitrinesterenko/blog/wiki/Debugging) for
 additional notes
+
+# Deploying
+
+## Docker Machine
+Check the scripts and Makefile in ./scripts/deployment

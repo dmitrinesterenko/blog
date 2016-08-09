@@ -1,9 +1,10 @@
 FROM marcelocg/phoenix:latest
 
 #TODO this is not necessary once you use docker-compose
-ENV WORKDIR /my_phoenix
+ENV WORKDIR /webapp/current
+RUN mkdir -p $WORKDIR
 WORKDIR $WORKDIR
-ADD . $WORKDIR
+COPY . $WORKDIR
 RUN apt-get update
 # Looks that marcelo's image is missing psql so the default use of Postgres
 # is not available. This is smart of the original image because the
@@ -12,17 +13,19 @@ RUN apt-get update
 RUN apt-get install -y postgresql-client
 # Update to 1.1 of elixir
 RUN apt-get install -y elixir
-ENV
-WORKDIR
+# Mix dependencies
+RUN mix local.hex --force
 RUN mix local.rebar --force
-RUN mix deps.get -Y
-RUN mix deps.clean connection
-RUN mix deps.clean db_connection
-RUN mix deps.clean postgrex
+RUN mix deps
+RUN mix deps.clean --unused        # Remove the given dependencies' files
+RUN mix deps.compile      # Compile dependencies
+RUN mix deps.get -Y       # Get all out of date dependencies
+#RUN mix deps.unlock       # Unlock the given dependencies
 RUN mix deps.update --all
+
 RUN mix compile
 RUN npm install
-RUN npm install node-sass
+#RUN npm install node-sass
 
 EXPOSE 4000
-CMD ["/bin/sh", "/bin/bash"]
+CMD ["mix phoenix.server"]
