@@ -16,6 +16,9 @@ use:
 build:
 	docker build --tag dmitrinesterenko/blog:latest -f Dockerfile-production .
 
+run:
+	docker run -it --rm --name blog -p 4000:4000 dmitrinesterenko/blog:latest
+
 deploy: build
 	docker push dmitrinesterenko/blog\:latest
 #        use
