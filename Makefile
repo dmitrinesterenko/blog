@@ -19,7 +19,7 @@ build:
 
 run:
 	docker-compose start db
-	docker run -it --rm --name blog -p 4000\:80 --link blogphoenix_db_1\:db dmitrinesterenko/blog\:latest
+	docker run -it --rm --name blog -p 80\:4000 --link blogphoenix_db_1\:db dmitrinesterenko/blog\:latest
 
 deploy: build
 	docker push dmitrinesterenko/blog\:latest
@@ -27,8 +27,9 @@ deploy: build
 	docker pull dmitrinesterenko/blog\:latest
 	#docker stop dmitrinesterenko/blog\:latest
 	docker-compose -f docker-compose-development.yml start db
-	docker run -it --rm -p 4000\:80 --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest mix phoenix.server
+	docker run -it --rm -p 80\:4000 --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest
 
 test: build
 	docker-compose start db
-	docker run -it --rm --name blog -p 4000:80 -v `pwd`:/webapp/current --link blogphoenix_db_1:db dmitrinesterenko/blog:latest mix test
+	docker run -it --rm --name blog -p 80\:4000 -v `pwd`:/webapp/current \
+    --link blogphoenix_db_1\:db dmitrinesterenko/blog\:latest mix test
