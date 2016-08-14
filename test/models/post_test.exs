@@ -23,4 +23,10 @@ defmodule BlogPhoenix.PostTest do
     {message, _length} = changeset.errors[:title]
     assert message == "should be at least 2 characters"
   end
+
+  test "uses a UUID" do
+    changeset = Post.changeset(%Post{}, @valid_attrs)
+    {:ok, record} = Repo.insert(changeset)
+    assert String.length(record.id) == 36
+
 end

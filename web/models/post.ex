@@ -1,5 +1,6 @@
 defmodule BlogPhoenix.Post do
   use BlogPhoenix.Web, :model
+  use BlogPhoenix.Schema
 
   schema "posts" do
     field :title, :string
