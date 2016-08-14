@@ -21,11 +21,11 @@ RUN mix deps.clean --unused        # Remove the given dependencies' files
 RUN mix deps.compile      # Compile dependencies
 RUN mix deps.get -Y       # Get all out of date dependencies
 #RUN mix deps.unlock       # Unlock the given dependencies
-RUN mix deps.update --all
+#RUN mix deps.update --all
 
 RUN mix compile
 RUN npm install
 #RUN npm install node-sass
 
 EXPOSE 4000
-CMD ["mix phoenix.server"]
+CMD ["./scripts/container/startup.sh"]
