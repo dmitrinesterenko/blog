@@ -28,5 +28,5 @@ defmodule BlogPhoenix.PostTest do
     changeset = Post.changeset(%Post{}, @valid_attrs)
     {:ok, record} = Repo.insert(changeset)
     assert String.length(record.id) == 36
-
+  end
 end
