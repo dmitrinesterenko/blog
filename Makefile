@@ -6,7 +6,8 @@ machine-create:
 
 start:
 	docker-machine start ${MACHINE}
-	$(docker-machine env $${MACHINE})
+	#$(docker-machine env $${MACHINE})
+	use
 	docker-machine regenerate-certs ${MACHINE}
 stop:
 	docker-machine stop ${MACHINE}
@@ -14,10 +15,11 @@ use:
 	docker-machine use aws01
 
 build:
-	docker build --tag dmitrinesterenko/blog:latest -f Dockerfile-production .
+	docker build --tag dmitrinesterenko/blog\:latest -f Dockerfile-production .
 
 run:
-	docker run -it --rm --name blog -p 4000:4000 dmitrinesterenko/blog:latest
+	docker-compose start db
+	docker run -it --rm --name blog -p 4000\:80 --link blogphoenix_db_1\:db dmitrinesterenko/blog\:latest
 
 deploy: build
 	docker push dmitrinesterenko/blog\:latest
@@ -25,4 +27,8 @@ deploy: build
 	docker pull dmitrinesterenko/blog\:latest
 	#docker stop dmitrinesterenko/blog\:latest
 	docker-compose -f docker-compose-development.yml start db
-	docker run -it -p 4000\:4000 --link blogphoenix_db_1:db dmitrinesterenko/blog\:latest mix phoenix.server
+	docker run -it --rm -p 4000\:80 --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest mix phoenix.server
+
+test: build
+	docker-compose start db
+	docker run -it --rm --name blog -p 4000:80 -v `pwd`:/webapp/current --link blogphoenix_db_1:db dmitrinesterenko/blog:latest mix test
