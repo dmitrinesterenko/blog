@@ -1,3 +1,3 @@
 #! /bin/bash
-./scripts/container/test.sh
+mix mix ecto.migrate
 mix phoenix.server
