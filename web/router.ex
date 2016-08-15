@@ -15,7 +15,7 @@ defmodule BlogPhoenix.Router do
   scope "/", BlogPhoenix do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", ReaderController, :index
     get "/about", PageController, :about
     get "/write", WriterController, :new
     post "/write", WriterController, :create
