@@ -5,7 +5,7 @@ defmodule BlogPhoenix.ReaderController do
   def index(conn, _params) do
     posts = Repo.all(Post)
     conn
-      |> render("index.html", posts: posts)
+      |> render("index.html", posts: posts, title: "Read")
   end
 end
 
