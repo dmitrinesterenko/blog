@@ -1,9 +1,6 @@
 
 <form method="post" action="/write">
   <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
-  <div class="headline">
-    <div>write a new post</div>
-  </div>
   <div class="row">
       <div>
         <label for="title">Title</label>
@@ -18,11 +15,10 @@
         <input type="text" rows="30" name="slug" value="no-space-in-slug"/>
       </div>
       <div>
-        <label for="body">Body</label>
+        <label for="body">Write</label>
       </div>
       <div>
-        <textarea cols="60" rows="30" name="body">
-        </textarea>
+        <textarea cols="80" rows="20" name="body"></textarea>
       </div>
       <div>
         <input type="submit" name="submit"/>

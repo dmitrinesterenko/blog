@@ -14,20 +14,6 @@
   <body>
     <div class="container">
       <div class="header">
-
-				<ul class="nav nav-pills pull-right">
-          	<li>
-							<a href="/about">
-								About Me
-							</a>
-						<li>
-							<a href="/write">	
-								Write
-							</a>
-						</li>
-						<li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-        </ul>
-        <span class="logo"></span>
       </div>
 
       <p class="alert alert-info"><%= get_flash(@conn, :info) %></p>

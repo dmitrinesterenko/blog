@@ -11,7 +11,6 @@ defmodule BlogPhoenix.WriterController do
 
   def new(conn, _params) do
     conn
-      |> put_flash(:info, "DEBUGMESSAGE")
       |> render("new.html")
   end
 

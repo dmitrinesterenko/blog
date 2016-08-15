@@ -12,6 +12,10 @@ body, form, ul, table {
   margin-bottom: 20px;
 }
 
+body {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
 /* Phoenix flash messages */
 .alert:empty { display: none; }
 
@@ -23,14 +27,6 @@ form.link, form.button {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
-}
-.logo {
-  width: 519px;
-  height: 71px;
-  display: inline-block;
-  margin-bottom: 1em;
-  background-image: url("/images/phoenix.png");
-  background-size: 519px 71px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -77,4 +73,9 @@ form.link, form.button {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+.title{
+  display: table;
+  border-bottom: 1px solid #eee;
 }
