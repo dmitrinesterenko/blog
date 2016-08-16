@@ -73,9 +73,26 @@ form.link, form.button {
   .jumbotron {
     border-bottom: 0;
   }
+
+  .title{
+    display: table;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu {
+    margin-bottom: 20px;
+  }
+
+  .menu a{
+    color: #111;
+    font-size: 15pt;
+    padding: 2px;
+  }
+
+  .menu a:hover{
+    text-decoration: none;
+    background-color: #eee;
+  }
 }
 
-.title{
-  display: table;
-  border-bottom: 1px solid #eee;
-}
+
