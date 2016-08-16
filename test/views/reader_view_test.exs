@@ -22,9 +22,15 @@ that surrounded if not the main but definitely the most picturesque square in
 town."}
 ]
 
-  test "index view" do
+  test "index view of posts" do
     assert render_to_string(ReaderView, "index.html", posts: @posts) =~
     "winter falls"
+  end
+
+  test "index view of posts has a link to create new" do
+    reader_view = render_to_string(ReaderView, "index.html", posts: @posts)
+    assert reader_view =~ "+"
+    assert reader_view =~ "/write"
   end
 
  # test "read view" do
