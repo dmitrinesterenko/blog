@@ -15,19 +15,21 @@ use:
 	docker-machine use aws01
 
 build:
+	# always build locally
+	#docker-machine use development
 	docker build --tag dmitrinesterenko/blog\:latest -f Dockerfile-production .
 
 run:
 	docker-compose start db
 	docker run -it --rm --name blog -p 80\:4000 --link blogphoenix_db_1\:db dmitrinesterenko/blog\:latest
 
-deploy: build
+deploy:
 	docker push dmitrinesterenko/blog\:latest
 #        use
 	docker pull dmitrinesterenko/blog\:latest
-	#docker stop dmitrinesterenko/blog\:latest
+	docker ps -q -f "name=blog" | xargs docker stop | xargs docker rm
 	docker-compose -f docker-compose-development.yml start db
-	docker run -it --rm -p 80\:4000 --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest
+	docker run -d --rm -p 80\:4000 --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest
 
 shell:
 	docker run -it --rm -p 80\:4000 --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest /bin/bash
