@@ -10,7 +10,7 @@ defmodule BlogPhoenix.WriterControllerTest do
 
   test "POST /write with correct parameters" do
     conn = post conn(), "/write", [title: "test title", body: "test body"]
-    assert html_response(conn, 200) =~ "Saved"
+    assert html_response(conn, 302) =~ "redirected"
   end
 
   test "POST /write with missing title" do
