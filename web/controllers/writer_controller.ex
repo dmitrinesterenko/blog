@@ -19,9 +19,8 @@ defmodule BlogPhoenix.WriterController do
    {status, response} = Repo.insert(post)
    case status do
      :ok -> conn
-       |> put_status(200)
-       |> put_flash(:info, "Saved")
-       |> render("new.html")
+       |> redirect(to: "/")
+       |> halt()
      _ -> conn
        |> put_status(422)
        |> put_flash(:error, ResponseFormatter.format_error(response.errors))
