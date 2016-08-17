@@ -36,6 +36,47 @@ form.link, form.button {
   padding-left: 15px;
 }
 
+@media (max-width: 768px){
+  $input_width: 19.5em;
+  $input_font_size: 1.5em;
+  $off_color: #ccc;
+  $on_color: #111;
+
+  .container {
+     max-width: 730px;
+     margin-left: 10px;
+     margin-right: 10px;
+  }
+  label{
+    color: $off_color;
+  }
+
+  textarea, input[type=text]{
+    width: $input_width;
+    font-size: $input_font_size;
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  textarea.off, input[type=text].off{
+    color: $off_color;
+  }
+
+  textarea.on, input[type=text].on{
+    color: $on_color;
+  }
+
+  input.action{
+    width: $input_width;
+    text-transform: uppercase;
+    font-size: $input_font_size;
+    background-color: #8bc34a;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:none;
+  }
+
+}
 /* Customize container */
 @media (min-width: 768px) {
   .container {

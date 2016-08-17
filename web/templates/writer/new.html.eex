@@ -3,25 +3,16 @@
   <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
   <div class="row">
       <div>
-        <label for="title">Title</label>
+        <label for="title">TITLE</label>
       </div>
       <div>
-        <input type="text" name="title" rows="30"/>
+        <input type="text" name="title" />
       </div>
       <div>
-        <label for="slug">Slug</label>
+        <textarea cols="80" rows="20" name="body" ></textarea>
       </div>
       <div>
-        <input type="text" rows="30" name="slug" value="no-space-in-slug"/>
-      </div>
-      <div>
-        <label for="body">Write</label>
-      </div>
-      <div>
-        <textarea cols="80" rows="20" name="body"></textarea>
-      </div>
-      <div>
-        <input type="submit" name="submit"/>
+        <input type="submit" name="submit" class="action"/>
       </div>
     </div>
   </div>
