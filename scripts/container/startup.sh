@@ -1,3 +1,3 @@
 #! /bin/bash
-mix mix ecto.migrate
+mix ecto.migrate
 mix phoenix.server
