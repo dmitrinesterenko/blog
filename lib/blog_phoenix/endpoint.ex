@@ -9,7 +9,7 @@ defmodule BlogPhoenix.Endpoint do
     at: "/",
     from: :blog_phoenix,
     gzip: false,
-    only: ~w(css images js favicon.ico robots.txt)
+    only: ~w(css images js favicon.ico robots.txt loaderio-98e1ada80f68207cec7d4745237732ea.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
