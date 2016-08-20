@@ -14,6 +14,9 @@ stop:
 use:
 	docker-machine use aws01
 
+base:
+	 docker build --tag dmitrinesterenko/blogbase\:latest -f Dockerfile-base .
+
 build:
 	# always build locally
 	#docker-machine use development
@@ -24,6 +27,7 @@ run:
 	docker run -it --rm --name blog -p 80\:4000 --link blogphoenix_db_1\:db dmitrinesterenko/blog\:latest
 
 push:
+	 docker push dmitrinesterenko/blogbase\:latest
 	 docker push dmitrinesterenko/blog\:latest
 
 deploy:
