@@ -35,7 +35,7 @@ deploy:
 	docker pull dmitrinesterenko/blog\:latest
 	#docker ps -q -f "name=blog" | xargs docker stop | xargs docker rm
 	docker-compose -f docker-compose-development.yml start db
-	docker run -d -p 80\:4000 --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest
+	docker run -d -p 80\:4000 -e "PORT=4000" -e "MIX_ENV=prod" --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest
 
 shell:
 	docker run -it --rm -p 80\:4000 --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest /bin/bash
