@@ -1,10 +1,11 @@
 FROM dmitrinesterenko/blogbase:latest
 
 #TODO this is not necessary once you use docker-compose
+ENV ENVIRONMENT prod
 ENV WORKDIR /webapp/current
 RUN mkdir -p $WORKDIR
 WORKDIR $WORKDIR
 COPY . $WORKDIR
-RUN mix compile
+RUN MIX_ENV=$ENVIRONMENT mix compile
 EXPOSE 4000
 CMD ["./scripts/container/startup.sh"]

@@ -13,8 +13,10 @@ use Mix.Config
 # which you typically run after static files are built.
 config :blog_phoenix, BlogPhoenix.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com"],
+  debug_errors: true,
+  url: [host: "dmitri.co"],
   cache_static_manifest: "priv/static/manifest.json"
+
 
 # ## SSL Support
 #
@@ -38,7 +40,7 @@ config :logger, level: :info
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start the server for all endpoints:
 #
-#     config :phoenix, :serve_endpoints, true
+config :phoenix, :serve_endpoints, true
 #
 # Alternatively, you can configure exactly which server to
 # start per endpoint:
