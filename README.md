@@ -40,3 +40,13 @@ additional notes
 
 ## Docker Machine
 Check the scripts and Makefile in ./scripts/deployment
+
+Create a new aws01 node
+```
+SUBNET=your_subnet VPC_ID=vpc_id make create
+```
+
+To deploy your application on an existing aws01 node run
+```sh
+make deploy
+```
