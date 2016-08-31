@@ -45,6 +45,9 @@ recreatedb: shell
 	mix ecto.create
 	mix ecto.migrate
 
+backup:
+	./scripts/databases/backup.sh
+
 test: build
 	docker-compose start db
 	docker run -it --rm --name blog -p 80\:4000 -v `pwd`:/webapp/current \
