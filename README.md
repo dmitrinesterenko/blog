@@ -11,6 +11,33 @@ This will run the application.
 
 Now you can visit `localhost:4000` in your browser.
 
+# Database
+A shorthand for database console psql command is in
+```sh
+./scripts/databases/console.sh
+```
+
+## Backup
+Make a backup by connecting to docker-machine and running `make backup`
+
+```sh
+eval $(docker-machine env {node})
+make backup
+```
+
+## Restore
+Restore from a local dump file
+
+```sh
+./scripts/databases/restore.sh ./backup/backup-file.bkp.tar
+```
+The restore is a full database re-create so you may need to drop the database
+beforehand.
+
+```sh
+./scripts/databases/drop.sh
+```
+
 # Developing
 
 ## Running tests
