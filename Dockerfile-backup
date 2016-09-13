@@ -1,0 +1,6 @@
+FROM postgres:9.4
+MAINTAINER "Dmitri Nesterenko <dmitri.nesterenko@gmail.com>"
+ENV BACKUPDIR /backup
+RUN mkdir -p $BACKUPDIR
+WORKDIR $BACKUPDIR
+RUN apt-get update && apt-get install awscli

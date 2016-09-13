@@ -1,6 +1,6 @@
-app:  
+app:
   build: .
-  volumes: 
+  volumes:
     - .:/my_phoenix
   working_dir: /my_phoenix
   command: 'scripts/container/startup.sh'
@@ -14,4 +14,14 @@ db:
     POSTGRES_USER: 'phoenix_blog'
   ports:
     - '5432'
+  volumes:
+    - ./backup:/backup
 
+backup:
+  image: Dockerfile-backup
+  volumes:
+    - ./backup:/backup
+  environment:
+    POSTGRES_USER: 'phoenix_blog'
+  links:
+    - db
