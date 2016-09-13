@@ -10,5 +10,11 @@ defmodule BlogPhoenix.ReaderView do
 
   def preview(%Post{body: body}) do
     body
+      |> Earmark.to_html()
+  end
+
+  def body(%Post{body: body}) do
+    body
+      |> Earmark.to_html()
   end
 end

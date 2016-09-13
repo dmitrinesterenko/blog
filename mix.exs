@@ -3,7 +3,7 @@ defmodule BlogPhoenix.Mixfile do
 
   def project do
     [app: :blog_phoenix,
-     version: "0.0.1",
+     version: "0.7.0",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
@@ -34,7 +34,10 @@ defmodule BlogPhoenix.Mixfile do
      {:postgrex, ">= 0.11.0"},
      {:phoenix_live_reload, "~> 1.0"},
      {:phoenix_html, "~> 2.6"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:earmark, "~> 1.0"}
+
+    ]
   end
 
 #  defp aliases do

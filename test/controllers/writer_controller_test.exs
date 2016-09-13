@@ -4,7 +4,7 @@ defmodule BlogPhoenix.WriterControllerTest do
 
   test "GET /write" do
     conn = get build_conn(), "/write"
-    assert html_response(conn, 200) =~ "Title"
+    assert html_response(conn, 200) =~ "TITLE"
   end
 
   test "POST /write with correct parameters" do

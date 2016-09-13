@@ -1,6 +1,8 @@
-app:  
+app:
   build: .
-  volumes: 
+  environment:
+    MIX_ENV=test
+  volumes:
     - .:/my_phoenix
   working_dir: /my_phoenix
   command: 'scripts/container/startup_development.sh'
