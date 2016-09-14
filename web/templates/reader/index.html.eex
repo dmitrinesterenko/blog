@@ -3,5 +3,5 @@
 </div>
 <%= for post <- @posts do %>
   <div class="title"><%= ReaderView.title(post) %></div>
-  <div class="body"><%= ReaderView.preview(post) %></div>
+  <div class="body"><%= raw ReaderView.preview(post) %></div>
 <% end %>
