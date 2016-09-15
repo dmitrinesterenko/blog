@@ -15,7 +15,7 @@ stop:
 	docker-machine stop ${MACHINE}
 
 base:
-	 docker build --tag dmitrinesterenko/blogbase\:latest -f Dockerfile-base .
+	./scripts/deployment/build_base.sh
 
 build:
 	./scripts/deployment/build.sh
