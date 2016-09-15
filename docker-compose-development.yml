@@ -1,7 +1,7 @@
 app:
   build: .
   environment:
-    MIX_ENV=test
+    - MIX_ENV=test
   volumes:
     - .:/my_phoenix
   working_dir: /my_phoenix

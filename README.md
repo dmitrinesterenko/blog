@@ -77,3 +77,11 @@ To deploy your application on an existing aws01 node run
 ```sh
 make deploy
 ```
+
+The full process is described below.
+```
+make build_base # if base had changes to packages
+make build
+make push
+make deploy
+```
