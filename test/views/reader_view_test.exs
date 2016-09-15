@@ -2,6 +2,7 @@ defmodule BlogPhoenix.ReaderViewTest do
   alias BlogPhoenix.Post
   alias BlogPhoenix.ReaderView
   use BlogPhoenix.ConnCase, async: false
+  import Mock
 
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
@@ -58,9 +59,14 @@ town."},
 
   @tag :skip
   test "uses Markdown for all body displays" do
-    # Use mocking here to ensure that markdown is called
-    # on all render functions
-    # then you can get rid of the individual test for hyperlinks above
+    with_mocks([
+      { ReaderView, [:passthrough], [] },
+      { Earmark, [],  [to_html: fn(_post) -> "" end] }
+      ]) do
+      {_status, post} = Enum.fetch(@posts, 1)
+      formatted_html = ReaderView.body(post)
+      assert called Earmark.to_html(post)
+    end
   end
 
 end

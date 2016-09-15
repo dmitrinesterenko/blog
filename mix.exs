@@ -35,7 +35,8 @@ defmodule BlogPhoenix.Mixfile do
      {:phoenix_live_reload, "~> 1.0"},
      {:phoenix_html, "~> 2.6"},
      {:cowboy, "~> 1.0"},
-     {:earmark, "~> 1.0"}
+     {:earmark, "~> 1.0"},
+     {:mock, "~> 0.2"}
 
     ]
   end

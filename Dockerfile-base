@@ -12,9 +12,12 @@ RUN apt-get update
 # is not available. This is smart of the original image because the
 # tools used by Ecto to connect to the DB depend on the
 # DB decision of each phoenix project
-RUN apt-get install -y postgresql-client
+RUN apt-get install -y
+  elixir \
+  erlang-tools \
+  postgresql-client
+
 # Update to 1.1 of elixir
-RUN apt-get install -y elixir
 # Mix dependencies
 RUN mix local.hex --force
 RUN mix local.rebar --force
