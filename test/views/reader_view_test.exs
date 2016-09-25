@@ -36,12 +36,6 @@ town."},
     assert reader_view =~ "/write"
   end
 
- # test "read view" do
- #   {status, post} = Enum.fetch(@posts, 1)
- #   assert render_to_string(ReaderView, "reader.html", post: post) =~
- #   "A curious little boy with a lop sided ear"
- # end
-
   test "title" do
     {_status, post} = Enum.fetch(@posts, 0)
     assert ReaderView.title(post) == "THE NARRATIVE OF THE MAN FROM NARANGASETT"
