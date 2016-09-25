@@ -1,3 +1,3 @@
 #! /bin/bash
 ./scripts/container/install.sh
-iex -S mix phoenix.server
+MIX_ENV=test mix phoenix.server
