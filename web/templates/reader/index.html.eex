@@ -3,5 +3,8 @@
 </div>
 <%= for post <- @posts do %>
   <div class="title"><%= ReaderView.title(post) %></div>
+  <div class="action" id="edit">
+    <a href="<%= writer_path(@conn, :edit, ReaderView.id(post))%>">></a>
+  </div>
   <div class="body"><%= raw ReaderView.preview(post) %></div>
 <% end %>

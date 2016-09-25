@@ -3,6 +3,14 @@ defmodule BlogPhoenix.ReaderView do
   alias BlogPhoenix.Post
   alias BlogPhoenix.ReaderView
 
+  def id(%Post{id: id}) when is_nil(id) do
+    ""
+  end
+
+  def id(%Post{id: id}) do
+    id
+  end
+
   def title(%Post{title: title}) do
     title
       |> String.upcase()

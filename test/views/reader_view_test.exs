@@ -6,7 +6,8 @@ defmodule BlogPhoenix.ReaderViewTest do
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
 
-  @posts [%Post{title: "the Narrative of The Man From Narangasett",
+  @posts [%Post{id: "1234",
+  title: "the Narrative of The Man From Narangasett",
         body: "The winter falls were almost frozen. Moving slowly like the line
 at the bakery next to the even more life retardant post office. It was a Tuesday
 in February"},
@@ -25,12 +26,12 @@ town."},
 ]
 
   test "index view of posts" do
-    assert render_to_string(ReaderView, "index.html", posts: @posts) =~
+    assert render_to_string(ReaderView, "index.html", posts: @posts, conn: build_conn()) =~
     "winter falls"
   end
 
   test "index view of posts has a link to create new" do
-    reader_view = render_to_string(ReaderView, "index.html", posts: @posts)
+    reader_view = render_to_string(ReaderView, "index.html", posts: @posts, conn: build_conn())
     assert reader_view =~ "+"
     assert reader_view =~ "/write"
   end
@@ -52,15 +53,16 @@ town."},
   end
 
   test "converts hyperlink text to hyperlinks" do
-    {_status,post} = Enum.fetch(@posts, 2)
+    {_status, post} = Enum.fetch(@posts, 2)
     assert ReaderView.body(post) =~ "<a href=\"http://www.walrusandtheyogurt.dmitri.co\">http://www.walrusandtheyogurt.dmitri.co</a>"
   end
 
-  @tag :skip
-  test "uses Markdown for all body displays" do
-    # Use mocking here to ensure that markdown is called
-    # on all render functions
-    # then you can get rid of the individual test for hyperlinks above
+  test "has links to edit" do
+    {_status, post} = Enum.fetch(@posts, 0)
+    conn = get build_conn(), "/read"
+    assert render_to_string(ReaderView, "index.html", posts: @posts, conn: conn) =~ "<a href=\"/write/#{post.id}\">></a>"
+
   end
+
 
 end
