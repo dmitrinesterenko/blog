@@ -9,7 +9,7 @@
         <input type="text" name="title" value="<%= @post.title %>" />
       </div>
       <div>
-        <textarea cols="80" rows="20" name="body" value="<%= @post.body %>" ></textarea>
+        <textarea cols="80" rows="20" name="body"><%= @post.body %></textarea>
       </div>
       <div>
         <input type="submit" name="submit" class="action"/>
