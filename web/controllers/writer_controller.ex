@@ -31,15 +31,15 @@ defmodule BlogPhoenix.WriterController do
         |> redirect(to: "/")
         |> halt()
       _ -> conn
-        |> render("new.html", post: post, title: "Edit")
+        |> render("edit.html", post: post, title: "Edit")
 
     end
   end
 
   def save(conn, params) do
     post = Repo.get!(Post, params["post_id"])
-    post = Post.changeset(post, %{title: params["title"], slug: params["slug"], body: params["body"]})
-    {status, response} = Repo.update(post)
+    post_save = Post.changeset(post, %{title: params["title"], slug: params["slug"], body: params["body"]})
+    {status, response} = Repo.update(post_save)
     case status do
       :ok -> conn
         |> redirect(to: "/")
@@ -47,7 +47,7 @@ defmodule BlogPhoenix.WriterController do
       _ -> conn
         |> put_status(422)
         |> put_flash(:error, ResponseFormatter.format_error(response.errors))
-        |> render("new.html")
+        |> render("edit.html", post: post, title: "Edit")
     end
   end
 

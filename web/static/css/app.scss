@@ -36,6 +36,15 @@ form.link, form.button {
   padding-left: 15px;
 }
 
+.title{
+  float: left;
+  padding-right: 10px;
+}
+
+.body{
+  clear: left;
+}
+
 @media (max-width: 768px){
   $input_width: 19.5em;
   $input_font_size: 1.5em;

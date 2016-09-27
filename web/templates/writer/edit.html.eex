@@ -1,0 +1,19 @@
+<form method="put" action="<%= writer_path(@conn, :edit, WriterView.id(@post)) %>">
+  <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+  <div class="row">
+      <div>
+        <label for="title">TITLE</label>
+      </div>
+      <div>
+        <input type="text" name="title" value="<%= @post.title %>" />
+      </div>
+      <div>
+        <textarea cols="80" rows="20" name="body"><%= @post.body %></textarea>
+      </div>
+      <div>
+        <input type="submit" name="submit" class="action"/>
+      </div>
+    </div>
+  </div>
+</form>
+
