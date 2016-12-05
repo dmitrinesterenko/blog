@@ -22,7 +22,7 @@ build:
 
 run:
 	docker-compose start db
-	docker run -it --rm --name blog -p 80\:4000 --link blogphoenix_db_1\:db dmitrinesterenko/blog\:latest
+	docker run -it --rm --name blog -p 80\:4000 --link blog_db_1\:db dmitrinesterenko/blog\:latest
 
 push:
 	./scripts/deployment/push.sh
@@ -44,4 +44,4 @@ backup:
 test: build
 	docker-compose start db
 	docker run -it --rm --name blog -p 80\:4000 -v `pwd`:/webapp/current \
-	--link blogphoenix_db_1\:db dmitrinesterenko/blog\:latest mix test
+	--link blog_db_1\:db dmitrinesterenko/blog\:latest mix test

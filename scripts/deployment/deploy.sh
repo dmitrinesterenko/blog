@@ -13,8 +13,10 @@ eval $(docker-machine env aws01 --shell bash)
 docker pull dmitrinesterenko/blog\:latest
 # run
 docker-compose -f docker-compose-development.yml start db
-docker stop blog
-docker rm blog
+# Do not do this because this stops the database as well as the app and the
+# database should not be stopped during deployment
+#docker stop blog
+#docker rm blog
 docker run -d -p 80\:4000 -e "PORT=4000" -e "MIX_ENV=prod" --link blogphoenix_db_1:db --name blog dmitrinesterenko/blog\:latest
 
 

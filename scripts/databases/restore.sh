@@ -1,6 +1,6 @@
 #!/bin/bash
-HOST=blog01.caagrkhtyghj.us-east-1.rds.amazonaws.com
-USER=blog
+HOST=54.225.13.119     #blog01.caagrkhtyghj.us-east-1.rds.amazonaws.com
+USER=phoenix_blog      #blog
 DATABASE=phoenix_blog
 BACKUP=$1 #./backup/2016-09-01-02-49-58.bkp.tar
 
